@@ -2,6 +2,10 @@ import {useState, memo} from 'react';
 import {Container} from 'react-bootstrap';
 
 
+function propsCompare(prevProps, nextProps) {
+    return prevProps.mail === nextProps.mail && prevProps.text === nextProps.text;
+}
+
 const Form = memo((props) => {
 
     return (
@@ -18,7 +22,7 @@ const Form = memo((props) => {
             </form>
         </Container>
     )
-})
+}, propsCompare)
 
 function App() {
     const [data, setData] = useState({
